@@ -1,0 +1,30 @@
+{
+  "name": "michael-carty-bookings",
+  "version": "1.0.0",
+  "description": "Michael Carty Bookings & Artist Management — static artist roster + booking site. Deploy to any static/PHP host.",
+  "private": true,
+  "scripts": {
+    "start": "npx serve -s . --single-page-fallback index.html",
+    "preview": "npx serve -s . --single-page-fallback index.html",
+    "lint": "echo \"Static site — no build step required.\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MichaelCarty1980/MC-Booking-Site.git"
+  },
+  "keywords": [
+    "artist",
+    "booking",
+    "music",
+    "kompa",
+    "aruba",
+    "static-site",
+    "portfolio"
+  ],
+  "author": "Michael Carty",
+  "license": "UNLICENSED",
+  "engines": {
+    "node": ">=18"
+  },
+  "devDependencies": {}
+}
