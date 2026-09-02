@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Booking — Michael Carty Bookings &amp; Artist Management</title>
+  <meta name="description" content="Request a live booking — festival, venue, or corporate event. Tell us your date, venue, city, budget, and desired artist." />
+  <link rel="icon" href="assets/favicon.png" type="image/png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body>
+  <header class="nav">
+    <div class="container nav-inner">
+      <a class="brand" href="index.html" aria-label="Michael Carty home">
+        <img src="assets/logo.png" alt="MC monogram" />
+        <span class="brand-text"><strong>MICHAEL CARTY</strong><span>Bookings &amp; Management</span></span>
+      </a>
+      <button class="nav-toggle" aria-label="Toggle menu">&#9776;</button>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="artists.html">Artists</a></li>
+        <li><a href="booking.html">Booking</a></li>
+        <li><a href="management.html">Management</a></li>
+        <li><a href="news.html">News</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <section class="page-hero">
+    <div class="slides">
+      <img class="ph-img" src="assets/img/booking.jpg" alt="Concert crowd and stage lights" />
+      <img src="assets/img/neon.jpg" alt="Neon-lit venue" />
+      <img src="assets/img/crowd.jpg" alt="Concert audience" />
+    </div>
+    <div class="container">
+      <p class="eyebrow">Booking Request</p>
+      <h1>Bring the right artist to your event.</h1>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">Booking Request</p>
+        <h2>Bring the right artist to your event.</h2>
+        <p>Looking for a memorable live performance? Tell us about your event and our team will help identify availability and the best fit from our roster.</p>
+      </div>
+
+      <div class="form-wrap">
+        <form id="booking-form" method="POST" action="mail.php" novalidate>
+          <input type="hidden" name="form_id" value="booking-form" />
+          <input type="hidden" name="website" tabindex="-1" autocomplete="off" />
+          <div class="field-row">
+            <div class="field">
+              <label for="organizer">Your Name / Organization</label>
+              <input id="organizer" name="organizer" type="text" placeholder="e.g. Jane Promoter, North Stage Festival" required />
+            </div>
+            <div class="field">
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" placeholder="you@venue.com" required />
+            </div>
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label for="eventDate">Event Date</label>
+              <input id="eventDate" name="eventDate" type="date" required />
+            </div>
+            <div class="field">
+              <label for="artist">Desired Artist</label>
+              <select id="artist" name="artist">
+                <option value="">No preference — recommend a fit</option>
+                <option>Jeon</option>
+                <option>Essovilla</option>
+                <option>Issabeach</option>
+                <option>JRalph</option>
+                <option>DJ Whiteboy</option>
+                <option>BB Bad</option>
+                <option>Shine Music</option>
+                <option>Clarence</option>
+              </select>
+            </div>
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label for="venue">Venue</label>
+              <input id="venue" name="venue" type="text" placeholder="Venue name" />
+            </div>
+            <div class="field">
+              <label for="city">City / Country</label>
+              <input id="city" name="city" type="text" placeholder="Oranjestad, Aruba" />
+            </div>
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label for="budget">Budget Range</label>
+              <select id="budget" name="budget">
+                <option>Under $5,000</option>
+                <option>$5,000 – $15,000</option>
+                <option>$15,000 – $50,000</option>
+                <option>$50,000+</option>
+                <option>To be discussed</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="audience">Expected Audience Size</label>
+              <input id="audience" name="audience" type="text" placeholder="e.g. 500 / 5,000 / 20,000" />
+            </div>
+          </div>
+          <div class="field">
+            <label for="details">Event Details</label>
+            <textarea id="details" name="details" placeholder="Tell us about the event, set length, stage setup, and anything else we should know."></textarea>
+          </div>
+          <button class="btn btn-solid" type="submit">Submit Booking Request</button>
+        </form>
+        <p style="color:var(--ivory-dim); font-size:0.85rem; margin-top:18px;">
+          Submitting opens your email app with a pre-filled message to <strong>bookings@michael-carty.com</strong>. Prefer direct contact? Call <a href="tel:+2977317771" style="color:var(--gold)">+297 731 7771</a>.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div>
+          <a class="brand" href="index.html">
+            <img src="assets/logo.png" alt="MC monogram" />
+            <span class="brand-text"><strong>MICHAEL CARTY</strong><span>Bookings &amp; Management</span></span>
+          </a>
+          <p style="color:var(--ivory-dim); margin-top:16px; max-width:320px;">Building meaningful careers. Creating unforgettable live experiences.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Navigate</h4>
+          <a href="artists.html">Artists</a>
+          <a href="booking.html">Booking</a>
+          <a href="management.html">Management</a>
+          <a href="about.html">About</a>
+          <a href="news.html">News</a>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <a href="tel:+2977317771">+297 731 7771</a>
+          <a href="mailto:bookings@michael-carty.com">bookings@michael-carty.com</a>
+          <span style="color:var(--ivory-dim); display:block; margin-top:6px;">Hooiberg Kavel 11-H<br/>Oranjestad, Aruba</span>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; <span data-year>2026</span> Michael Carty Bookings &amp; Artist Management Company. All rights reserved.</span>
+        <span>www.michael-carty.com</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/script.js"></script>
+</body>
+</html>

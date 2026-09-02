@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact — Michael Carty Bookings &amp; Artist Management</title>
+  <meta name="description" content="Contact Michael Carty Bookings & Artist Management for artist bookings, management inquiries, partnerships, press, or general questions." />
+  <link rel="icon" href="assets/favicon.png" type="image/png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body>
+  <header class="nav">
+    <div class="container nav-inner">
+      <a class="brand" href="index.html" aria-label="Michael Carty home">
+        <img src="assets/logo.png" alt="MC monogram" />
+        <span class="brand-text"><strong>MICHAEL CARTY</strong><span>Bookings &amp; Management</span></span>
+      </a>
+      <button class="nav-toggle" aria-label="Toggle menu">&#9776;</button>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="artists.html">Artists</a></li>
+        <li><a href="booking.html">Booking</a></li>
+        <li><a href="management.html">Management</a></li>
+        <li><a href="news.html">News</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <section class="page-hero">
+    <div class="slides">
+      <img class="ph-img" src="assets/img/contact.jpg" alt="Live event atmosphere" />
+      <img src="assets/img/neon.jpg" alt="Neon-lit venue" />
+      <img src="assets/img/hero.jpg" alt="Live performance under stage lights" />
+    </div>
+    <div class="container">
+      <p class="eyebrow">Contact</p>
+      <h1>Let's create the next great live experience.</h1>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">Contact</p>
+        <h2>Let's create the next great live experience.</h2>
+        <p>For artist bookings, management inquiries, partnerships, press, or general questions — our team is based in Oranjestad, Aruba and works with artists, venues, promoters, and brands internationally.</p>
+      </div>
+
+      <div class="contact-grid">
+        <div class="form-wrap">
+          <form id="contact-form" method="POST" action="mail.php" novalidate>
+            <input type="hidden" name="form_id" value="contact-form" />
+            <input type="hidden" name="website" tabindex="-1" autocomplete="off" />
+            <div class="field-row">
+              <div class="field">
+                <label for="name">Name</label>
+                <input id="name" name="name" type="text" placeholder="Your name" required />
+              </div>
+              <div class="field">
+                <label for="email">Email</label>
+                <input id="email" name="email" type="email" placeholder="you@example.com" required />
+              </div>
+            </div>
+            <div class="field">
+              <label for="topic">Topic</label>
+              <select id="topic" name="topic">
+                <option>General inquiry</option>
+                <option>Booking inquiry</option>
+                <option>Management inquiry</option>
+                <option>Partnership / sponsorship</option>
+                <option>Press inquiry</option>
+                <option>Artist submission</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" placeholder="How can we help?"></textarea>
+            </div>
+            <button class="btn btn-solid" type="submit">Send Message</button>
+          </form>
+        </div>
+
+        <div>
+          <div class="info-item">
+            <div class="label">Phone</div>
+            <div class="value"><a href="tel:+2977317771" style="color:var(--ivory);">+297 731 7771</a></div>
+          </div>
+          <div class="info-item">
+            <div class="label">Bookings Email</div>
+            <div class="value"><a href="mailto:bookings@michael-carty.com" style="color:var(--ivory);">bookings@michael-carty.com</a></div>
+          </div>
+          <div class="info-item">
+            <div class="label">Website</div>
+            <div class="value"><a href="https://www.michael-carty.com" style="color:var(--ivory);">www.michael-carty.com</a></div>
+          </div>
+          <div class="info-item">
+            <div class="label">Office</div>
+            <div class="value">Hooiberg Kavel 11-H<br/>Oranjestad, Aruba</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div>
+          <a class="brand" href="index.html">
+            <img src="assets/logo.png" alt="MC monogram" />
+            <span class="brand-text"><strong>MICHAEL CARTY</strong><span>Bookings &amp; Management</span></span>
+          </a>
+          <p style="color:var(--ivory-dim); margin-top:16px; max-width:320px;">Building meaningful careers. Creating unforgettable live experiences.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Navigate</h4>
+          <a href="artists.html">Artists</a>
+          <a href="booking.html">Booking</a>
+          <a href="management.html">Management</a>
+          <a href="about.html">About</a>
+          <a href="news.html">News</a>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <a href="tel:+2977317771">+297 731 7771</a>
+          <a href="mailto:bookings@michael-carty.com">bookings@michael-carty.com</a>
+          <span style="color:var(--ivory-dim); display:block; margin-top:6px;">Hooiberg Kavel 11-H<br/>Oranjestad, Aruba</span>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; <span data-year>2026</span> Michael Carty Bookings &amp; Artist Management Company. All rights reserved.</span>
+        <span>www.michael-carty.com</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/script.js"></script>
+</body>
+</html>

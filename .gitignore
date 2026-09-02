@@ -1,0 +1,19 @@
+# OS / editor junk
+*.log
+*.zip
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Python
+__pycache__/
+*.pyc
+
+# Local servers
+.venv/
+.env
+
+# IDE
+.vscode/
+.idea/
+*.swp
