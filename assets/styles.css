@@ -406,12 +406,12 @@ section { padding: 96px 0; }
   gap: 34px;
   align-items: start;
 }
-.album-cover { position: relative; overflow: hidden; width: 100%; aspect-ratio: 1 / 1; border-radius: 10px; border: 1px solid var(--line); }
-.album-cover .slides { position: absolute; inset: 0; width: 100%; height: 100%; }
-.album-cover .slides img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; animation: slidefade 12s infinite; }
-.album-cover .slides img:nth-child(1) { animation-delay: 0s; }
-.album-cover .slides img:nth-child(2) { animation-delay: 4s; }
-.album-cover .slides img:nth-child(3) { animation-delay: 8s; }
+.album-cover img {
+  width: 100%;
+  border-radius: 10px;
+  border: 1px solid var(--line);
+  box-shadow: 0 18px 50px rgba(0,0,0,.55);
+}
 .tracklist-label { color: var(--ivory-dim); text-transform: uppercase; letter-spacing: .12em; font-size: .8rem; margin-bottom: 12px; }
 .tracks { list-style: none; display: flex; flex-direction: column; gap: 12px; }
 .track {
