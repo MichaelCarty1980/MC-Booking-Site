@@ -1,13 +1,13 @@
 <?php
 /**
  * Michael Carty Bookings & Artist Management — form backend
- * Hosted on Titan (cPanel/PHP). Receives POST from the booking and contact
+ * Hosted on any PHP host. Receives POST from the booking and contact
  * forms and emails the contents to bookings@michael-carty.com.
  */
 
 // ---- Configuration -------------------------------------------------------
 $TO_EMAIL   = 'bookings@michael-carty.com';
-$FROM_EMAIL = 'bookings@michael-carty.com';   // must be a real domain address on Titan
+$FROM_EMAIL = 'bookings@michael-carty.com';
 $SITE_NAME  = 'Michael Carty Bookings & Artist Management';
 
 // Map of form ids -> human-readable subject prefix
@@ -18,16 +18,9 @@ $FORM_LABELS = array(
 );
 
 // ---- Helpers -------------------------------------------------------------
-function clean($v) {
-    return trim(strip_tags($v));
-}
-function is_email($e) {
-    return filter_var($e, FILTER_VALIDATE_EMAIL);
-}
-// Block header-injection attempts
-function safe_line($v) {
-    return preg_replace('/(\r\n|\r|\n)/', ' ', $v);
-}
+function clean($v) { return trim(strip_tags($v)); }
+function is_email($e) { return filter_var($e, FILTER_VALIDATE_EMAIL); }
+function safe_line($v) { return preg_replace('/(\r\n|\r|\n)/', ' ', $v); }
 
 // ---- Only accept POST ----------------------------------------------------
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
@@ -35,15 +28,11 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     exit('Method Not Allowed');
 }
 
-// Honeypot: real users leave this empty; bots fill it.
-if (!empty($_POST['website'])) {
-    // Pretend success to the bot, but send nothing.
-    exit('OK');
-}
+// Honeypot
+if (!empty($_POST['website'])) { exit('OK'); }
 
 $formId = isset($_POST['form_id']) ? clean($_POST['form_id']) : '';
 $subjectPrefix = isset($FORM_LABELS[$formId]) ? $FORM_LABELS[$formId] : 'Website Inquiry';
-
 $senderName  = clean($_POST['name'] ?? $_POST['organizer'] ?? '');
 $senderEmail = clean($_POST['email'] ?? '');
 
@@ -52,7 +41,6 @@ if (!is_email($senderEmail)) {
     exit('A valid email address is required.');
 }
 
-// Build the message body from all submitted fields
 $lines = array();
 foreach ($_POST as $key => $value) {
     if (in_array($key, array('form_id', 'website', 'submit'), true)) continue;
@@ -63,10 +51,7 @@ foreach ($_POST as $key => $value) {
     $lines[] = $label . ": " . $value;
 }
 $body = implode("\n", $lines);
-if ($body === '') {
-    http_response_code(400);
-    exit('No form data received.');
-}
+if ($body === '') { http_response_code(400); exit('No form data received.'); }
 
 $subject = safe_line($subjectPrefix . ' — ' . ($senderName ?: $senderEmail));
 $headers = array(
@@ -78,7 +63,9 @@ $headers = array(
 $mailOk = mail($TO_EMAIL, $subject, $body, implode("\r\n", $headers));
 
 if ($mailOk) {
-    exit('OK');
+    header('Content-Type: text/html; charset=UTF-8');
+    echo '<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Request Sent</title><link rel="stylesheet" href="assets/styles.css"></head><body><section style="min-height:100vh;display:flex;align-items:center;justify-content:center;padding:40px 20px;"><div class="container"><div class="card" style="text-align:center;max-width:500px;margin:0 auto;"><img src="assets/logo.png" alt="Michael Carty Bookings" style="width:90px;margin-bottom:20px;"><h2 style="font-size:1.6rem;margin-bottom:14px;">Thank you for submitting your request to Michael Carty Bookings &amp; Artist Management.</h2><p style="color:var(--ivory-dim);">We will review it and contact you shortly.</p><a class="btn btn-solid" href="./" style="margin-top:22px;display:inline-block;">Back to Home</a></div></div></section></body></html>';
+    exit;
 } else {
     http_response_code(500);
     exit('Mail could not be sent. Please email us directly at ' . $TO_EMAIL);

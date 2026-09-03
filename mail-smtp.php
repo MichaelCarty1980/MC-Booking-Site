@@ -137,9 +137,10 @@ $result = smtp_send(
 );
 
 if ($result === true) {
-    exit('OK');
+    header('Content-Type: text/html; charset=UTF-8');
+    echo '<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Request Sent</title><link rel="stylesheet" href="assets/styles.css"></head><body><section style="min-height:100vh;display:flex;align-items:center;justify-content:center;padding:40px 20px;"><div class="container"><div class="card" style="text-align:center;max-width:500px;margin:0 auto;"><img src="assets/logo.png" alt="Michael Carty Bookings" style="width:90px;margin-bottom:20px;"><h2 style="font-size:1.6rem;margin-bottom:14px;">Thank you for submitting your request to Michael Carty Bookings &amp; Artist Management.</h2><p style="color:var(--ivory-dim);">We will review it and contact you shortly.</p><a class="btn btn-solid" href="./" style="margin-top:22px;display:inline-block;">Back to Home</a></div></div></section></body></html>';
+    exit;
 } else {
     http_response_code(500);
-    // In production you may want to log $result; show a friendly message to the user:
     exit('Mail could not be sent. Please email us directly at ' . $TO_EMAIL);
 }
