@@ -2,19 +2,18 @@
 /**
  * Michael Carty Bookings & Artist Management — form backend
  * Hosted on any PHP host. Receives POST from the booking and contact
- * forms and emails the contents to bookings@michael-carty.com.
+ * forms and emails the contents to the appropriate inbox.
  */
 
 // ---- Configuration -------------------------------------------------------
-$TO_EMAIL   = 'bookings@michael-carty.com';
 $FROM_EMAIL = 'bookings@michael-carty.com';
 $SITE_NAME  = 'Michael Carty Bookings & Artist Management';
 
-// Map of form ids -> human-readable subject prefix
-$FORM_LABELS = array(
-    'booking-form'    => 'Booking Request',
-    'contact-form'    => 'Contact Inquiry',
-    'submission-form' => 'Artist Submission',
+// Per-form: recipient email + subject prefix
+$FORM_CONFIG = array(
+    'booking-form'    => array('to' => 'bookings@michael-carty.com', 'prefix' => 'Booking Request'),
+    'contact-form'    => array('to' => 'info@michael-carty.com',     'prefix' => 'Contact Inquiry'),
+    'submission-form' => array('to' => 'bookings@michael-carty.com', 'prefix' => 'Artist Submission'),
 );
 
 // ---- Helpers -------------------------------------------------------------
@@ -32,7 +31,10 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 if (!empty($_POST['website'])) { exit('OK'); }
 
 $formId = isset($_POST['form_id']) ? clean($_POST['form_id']) : '';
-$subjectPrefix = isset($FORM_LABELS[$formId]) ? $FORM_LABELS[$formId] : 'Website Inquiry';
+$formConfig = isset($FORM_CONFIG[$formId]) ? $FORM_CONFIG[$formId] : array('to' => 'bookings@michael-carty.com', 'prefix' => 'Website Inquiry');
+$TO_EMAIL = $formConfig['to'];
+$subjectPrefix = $formConfig['prefix'];
+
 $senderName  = clean($_POST['name'] ?? $_POST['organizer'] ?? '');
 $senderEmail = clean($_POST['email'] ?? '');
 

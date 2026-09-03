@@ -12,9 +12,15 @@
  */
 
 // ---------------------------- CONFIGURATION -------------------------------
-$TO_EMAIL   = 'bookings@michael-carty.com';
-$FROM_EMAIL = 'bookings@michael-carty.com';   // must match an existing Hostinger mailbox
+$FROM_EMAIL = 'bookings@michael-carty.com';
 $SITE_NAME  = 'Michael Carty Bookings & Artist Management';
+
+// Per-form: recipient email + subject prefix
+$FORM_CONFIG = array(
+    'booking-form'    => array('to' => 'bookings@michael-carty.com', 'prefix' => 'Booking Request'),
+    'contact-form'    => array('to' => 'info@michael-carty.com',     'prefix' => 'Contact Inquiry'),
+    'submission-form' => array('to' => 'bookings@michael-carty.com', 'prefix' => 'Artist Submission'),
+);
 
 // Hostinger SMTP — fill these in (get the app password from Hostinger panel)
 $SMTP_HOST   = 'smtp.hostinger.com';
@@ -24,14 +30,8 @@ $SMTP_USER   = 'bookings@michael-carty.com';
 $SMTP_PASS   = 'APP_PASSWORD_HERE';   // Hostinger app password, NOT the main mailbox password
 // -------------------------------------------------------------------------
 
-// Map of form ids -> human-readable subject prefix
-$FORM_LABELS = array(
-    'booking-form'    => 'Booking Request',
-    'contact-form'    => 'Contact Inquiry',
-    'submission-form' => 'Artist Submission',
-);
-
-// ------------------------------ Helpers -----------------------------------
+// -------------------------------------------------------------------------
+// Per-form config is defined above in $FORM_CONFIG.
 function clean($v) { return trim(strip_tags($v)); }
 function is_email($e) { return filter_var($e, FILTER_VALIDATE_EMAIL); }
 function safe_line($v) { return preg_replace('/(\r\n|\r|\n)/', ' ', $v); }
@@ -102,7 +102,9 @@ if (!empty($_POST['website'])) {
 }
 
 $formId = isset($_POST['form_id']) ? clean($_POST['form_id']) : '';
-$subjectPrefix = isset($FORM_LABELS[$formId]) ? $FORM_LABELS[$formId] : 'Website Inquiry';
+$formConfig = isset($FORM_CONFIG[$formId]) ? $FORM_CONFIG[$formId] : array('to' => 'bookings@michael-carty.com', 'prefix' => 'Website Inquiry');
+$TO_EMAIL = $formConfig['to'];
+$subjectPrefix = $formConfig['prefix'];
 
 $senderName  = clean($_POST['name'] ?? $_POST['organizer'] ?? '');
 $senderEmail = clean($_POST['email'] ?? '');
