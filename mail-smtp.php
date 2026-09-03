@@ -137,6 +137,17 @@ $result = smtp_send(
 );
 
 if ($result === true) {
+    // Auto-reply confirmation to the sender (best-effort via local mail())
+    $confirmSubject = 'We received your request — Michael Carty Bookings';
+    $confirmBody = "Hi" . ($senderName ? " $senderName" : "") . ",\n\n"
+        . "Thank you for submitting your request to Michael Carty Bookings & Artist Management.\n"
+        . "We have received it and will review it shortly.\n\n"
+        . "Best regards,\nMichael Carty Bookings & Artist Management\n"
+        . "bookings@michael-carty.com\n+297 731 7771";
+    $confirmHeaders = "From: $SITE_NAME <$FROM_EMAIL>\r\n"
+        . "Content-Type: text/plain; charset=UTF-8";
+    @mail($senderEmail, $confirmSubject, $confirmBody, $confirmHeaders);
+
     header('Content-Type: text/html; charset=UTF-8');
     echo '<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Request Sent</title><link rel="stylesheet" href="assets/styles.css"></head><body><section style="min-height:100vh;display:flex;align-items:center;justify-content:center;padding:40px 20px;"><div class="container"><div class="card" style="text-align:center;max-width:500px;margin:0 auto;"><img src="assets/logo.png" alt="Michael Carty Bookings" style="width:90px;margin-bottom:20px;"><h2 style="font-size:1.6rem;margin-bottom:14px;">Thank you for submitting your request to Michael Carty Bookings &amp; Artist Management.</h2><p style="color:var(--ivory-dim);">We will review it and contact you shortly.</p><a class="btn btn-solid" href="./" style="margin-top:22px;display:inline-block;">Back to Home</a></div></div></section></body></html>';
     exit;
