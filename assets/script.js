@@ -14,11 +14,14 @@
     });
   }
 
-  // Active nav link based on current file
-  var path = window.location.pathname.split("/").pop() || "index.html";
+  // Active nav link based on current path (site uses clean URLs, e.g. /about)
+  var path = window.location.pathname;
+  if (path.length > 1 && path.endsWith("/")) path = path.slice(0, -1);
+  if (path === "") path = "/";
   document.querySelectorAll(".nav-links a").forEach(function (a) {
     var href = a.getAttribute("href");
-    if (href === path || (path === "" && href === "index.html")) {
+    var normalized = href === "./" ? "/" : href;
+    if (normalized === path) {
       a.classList.add("active");
     }
   });
