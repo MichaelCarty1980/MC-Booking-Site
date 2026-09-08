@@ -361,8 +361,8 @@ section { padding: 96px 0; }
 .card p { color: var(--ivory-dim); font-size: 0.96rem; }
 
 /* News page: invite image + caption */
-.news-img-wrap { margin-top: 22px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; align-items: start; }
-.news-img-wrap img { width: 100%; height: auto; border-radius: 8px; border: 1px solid var(--line); display: block; }
+.news-img-wrap { margin-top: 22px; display: flex; gap: 12px; align-items: start; }
+.news-img-wrap img { flex: 1; min-width: 0; height: auto; border-radius: 8px; border: 1px solid var(--line); display: block; }
 .news-caption { margin-top: 10px; color: var(--gold); font-family: var(--serif); font-size: 0.9rem; }
 
 /* Featured A1 block (links to Clarence's card) */
