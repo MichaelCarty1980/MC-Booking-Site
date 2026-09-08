@@ -361,9 +361,45 @@ section { padding: 96px 0; }
 .card p { color: var(--ivory-dim); font-size: 0.96rem; }
 
 /* News page: invite image + caption */
-.news-img-wrap { margin-top: 22px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; align-items: start; }
-.news-img-wrap img { width: 100%; height: auto; border-radius: 8px; border: 1px solid var(--line); display: block; }
-.news-caption { margin-top: 10px; color: var(--gold); font-family: var(--serif); font-size: 0.9rem; grid-column: 1 / -1; }
+.news-img-wrap {
+  margin-top: 22px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+  gap: 12px;
+  width: 100%;
+  -webkit-box-align: start;
+  -ms-flex-align: start;
+  align-items: start;
+}
+.news-img-wrap img {
+  -webkit-box-flex: 1;
+  -ms-flex: 1 1 50%;
+  flex: 1 1 50%;
+  width: 50%;
+  max-width: 50%;
+  height: auto;
+  border-radius: 8px;
+  border: 1px solid var(--line);
+  display: block;
+  -o-object-fit: cover;
+  object-fit: cover;
+}
+.news-caption {
+  margin-top: 10px;
+  color: var(--gold);
+  font-family: var(--serif);
+  font-size: 0.9rem;
+  width: 100%;
+  -ms-flex-preferred-size: 100%;
+  flex-basis: 100%;
+}
 
 /* Featured A1 block (links to Clarence's card) */
 .featured-a1 { padding: 36px 0 8px; }
