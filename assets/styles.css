@@ -370,8 +370,8 @@ section { padding: 96px 0; }
   -webkit-box-direction: normal;
   -ms-flex-direction: row;
   flex-direction: row;
-  -ms-flex-wrap: nowrap;
-  flex-wrap: nowrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
   gap: 12px;
   width: 100%;
   -webkit-box-align: start;
@@ -383,7 +383,8 @@ section { padding: 96px 0; }
   -ms-flex: 1 1 0;
   flex: 1 1 0;
   width: 100%;
-  max-width: 50%;
+  max-width: calc(50% - 6px);
+  aspect-ratio: 3 / 4;
   height: auto;
   border-radius: 8px;
   border: 1px solid var(--line);
