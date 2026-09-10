@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contact — Michael Carty Bookings &amp; Artist Management</title>
-  <meta name="description" content="Contact Michael Carty Bookings & Artist Management for artist bookings, management inquiries, partnerships, press, or general questions." />
+  <title>Unsubscribe — Michael Carty Bookings &amp; Artist Management</title>
+  <meta name="description" content="Unsubscribe from Michael Carty Bookings & Artist Management email updates." />
   <link rel="icon" href="assets/favicon.png" type="image/png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -31,79 +31,20 @@
     </div>
   </header>
 
-  <section class="page-hero">
-    <div class="slides">
-      <img class="ph-img" src="assets/img/contact.jpg" alt="Live event atmosphere" />
-      <img src="assets/img/neon.jpg" alt="Neon-lit venue" />
-      <img src="assets/img/hero.jpg" alt="Live performance under stage lights" />
-    </div>
-    <div class="container">
-      <p class="eyebrow">Contact</p>
-      <h1>Let's create the next great live experience.</h1>
-    </div>
-  </section>
-
-  <section>
-    <div class="container">
-      <div class="section-head">
-        <p class="eyebrow">Contact</p>
-        <h2>Let's create the next great live experience.</h2>
-        <p>For artist bookings, management inquiries, partnerships, press, or general questions — our team is based in Oranjestad, Aruba and works with artists, venues, promoters, and brands internationally.</p>
-      </div>
-
-      <div class="contact-grid">
-        <div class="form-wrap">
-          <form id="contact-form" method="POST" action="mail.php" novalidate>
-            <input type="hidden" name="form_id" value="contact-form" />
-            <input type="hidden" name="website" tabindex="-1" autocomplete="off" />
-            <div class="field-row">
-              <div class="field">
-                <label for="name">Name</label>
-                <input id="name" name="name" type="text" placeholder="Your name" required />
-              </div>
-              <div class="field">
-                <label for="email">Email</label>
-                <input id="email" name="email" type="email" placeholder="you@example.com" required />
-              </div>
-            </div>
-            <div class="field">
-              <label for="topic">Topic</label>
-              <select id="topic" name="topic">
-                <option>General inquiry</option>
-                <option>Booking inquiry</option>
-                <option>Management inquiry</option>
-                <option>Partnership / sponsorship</option>
-                <option>Press inquiry</option>
-                <option>Artist submission</option>
-              </select>
-            </div>
-            <div class="field">
-              <label for="message">Message</label>
-              <textarea id="message" name="message" placeholder="How can we help?"></textarea>
-            </div>
-            <button class="btn btn-solid" type="submit">Send Message</button>
-          </form>
+  <section style="padding-top:160px; padding-bottom:120px;">
+    <div class="container" style="max-width:560px;">
+      <p class="eyebrow">Email Preferences</p>
+      <h1 style="font-size:clamp(1.8rem,4vw,2.6rem); margin-bottom:20px;">Unsubscribe</h1>
+      <p style="color:var(--ivory-dim); margin-bottom:32px;">Enter your email to stop receiving updates from Michael Carty Bookings &amp; Artist Management.</p>
+      <form action="unsubscribe.php" method="POST" class="form-wrap">
+        <input type="hidden" name="form_id" value="unsubscribe-form" />
+        <input type="text" name="website" tabindex="-1" autocomplete="off" style="position:absolute; left:-9999px;" aria-hidden="true" />
+        <div class="field">
+          <label for="unsub-email">Email address</label>
+          <input type="email" id="unsub-email" name="email" required />
         </div>
-
-        <div>
-          <div class="info-item">
-            <div class="label">Phone</div>
-            <div class="value"><a href="tel:+2977317771" style="color:var(--ivory);">+297 731 7771</a></div>
-          </div>
-          <div class="info-item">
-            <div class="label">Bookings Email</div>
-            <div class="value"><a href="mailto:bookings@michael-carty.com" style="color:var(--ivory);">bookings@michael-carty.com</a></div>
-          </div>
-          <div class="info-item">
-            <div class="label">Website</div>
-            <div class="value"><a href="https://www.michael-carty.com" style="color:var(--ivory);">www.michael-carty.com</a></div>
-          </div>
-          <div class="info-item">
-            <div class="label">Office</div>
-            <div class="value">Hooiberg Kavel 11-H<br/>Oranjestad, Aruba</div>
-          </div>
-        </div>
-      </div>
+        <button type="submit" class="btn btn-solid">Unsubscribe</button>
+      </form>
     </div>
   </section>
 

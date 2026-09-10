@@ -13,6 +13,9 @@ __pycache__/
 .venv/
 .env
 
+# Live secrets — created by hand on the server, never committed
+subscribe-config.php
+
 # IDE
 .vscode/
 .idea/
