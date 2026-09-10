@@ -1,3 +1,5 @@
+Options -Indexes
+
 RewriteEngine On
 
 # Redirect .html URLs to clean versions (301 permanent)
