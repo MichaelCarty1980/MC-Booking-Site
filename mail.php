@@ -35,7 +35,10 @@ $formConfig = isset($FORM_CONFIG[$formId]) ? $FORM_CONFIG[$formId] : array('to' 
 $TO_EMAIL = $formConfig['to'];
 $subjectPrefix = $formConfig['prefix'];
 
-$senderName  = clean($_POST['name'] ?? $_POST['organizer'] ?? '');
+$firstName = clean($_POST['firstName'] ?? '');
+$lastName  = clean($_POST['lastName'] ?? '');
+$fullNameFromParts = trim($firstName . ' ' . $lastName);
+$senderName  = clean($_POST['name'] ?? $_POST['organizer'] ?? '') ?: $fullNameFromParts;
 $senderEmail = clean($_POST['email'] ?? '');
 
 if (!is_email($senderEmail)) {

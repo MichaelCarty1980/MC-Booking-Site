@@ -63,30 +63,84 @@
         <form id="booking-form" method="POST" action="mail.php">
           <input type="hidden" name="form_id" value="booking-form" />
           <input type="hidden" name="website" tabindex="-1" autocomplete="off" />
+
+          <p class="form-section-title">Your Contact Details</p>
           <div class="field-row">
             <div class="field">
-              <label for="organizer">Your Name</label>
-              <input id="organizer" name="organizer" type="text" placeholder="e.g. Jane Promoter" required />
+              <label for="firstName">First Name</label>
+              <input id="firstName" name="firstName" type="text" placeholder="Jane" required />
             </div>
             <div class="field">
-              <label for="email">Email</label>
-              <input id="email" name="email" type="email" placeholder="you@venue.com" required />
+              <label for="lastName">Last Name</label>
+              <input id="lastName" name="lastName" type="text" placeholder="Promoter" required />
             </div>
           </div>
           <div class="field-row">
             <div class="field">
-              <label for="companyName">Company / Organization Name</label>
-              <input id="companyName" name="companyName" type="text" placeholder="e.g. North Stage Festival" required />
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" placeholder="you@venue.com" required />
             </div>
             <div class="field">
               <label for="phone">Phone</label>
               <input id="phone" name="phone" type="tel" placeholder="+___ ___ ____" required />
             </div>
           </div>
+
+          <p class="form-section-title">Promoter / Company <span class="field-hint">(the billing entity — who is signing)</span></p>
+          <div class="field-row">
+            <div class="field">
+              <label for="companyName">Company / Organization Name</label>
+              <input id="companyName" name="companyName" type="text" placeholder="e.g. North Stage Festival" required />
+            </div>
+            <div class="field">
+              <label for="vatNumber">VAT / Tax Number <span class="field-hint">(if applicable)</span></label>
+              <input id="vatNumber" name="vatNumber" type="text" placeholder="Optional" />
+            </div>
+          </div>
           <div class="field">
-            <label for="companyAddress">Company Address</label>
+            <label for="companyAddress">Company Address <span class="field-hint">(billing address of the signatory)</span></label>
             <input id="companyAddress" name="companyAddress" type="text" placeholder="Street, City, Country" required />
           </div>
+
+          <p class="form-section-title">Venue</p>
+          <div class="field-row">
+            <div class="field">
+              <label for="venue">Venue Name</label>
+              <input id="venue" name="venue" type="text" placeholder="Venue name" />
+            </div>
+            <div class="field">
+              <label for="city">Venue City / Country</label>
+              <input id="city" name="city" type="text" placeholder="Oranjestad, Aruba" />
+            </div>
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label for="venueAddress">Venue Address <span class="field-hint">(if different from above)</span></label>
+              <input id="venueAddress" name="venueAddress" type="text" placeholder="Street address of venue" />
+            </div>
+            <div class="field">
+              <label for="venueWebsite">Venue Website</label>
+              <input id="venueWebsite" name="venueWebsite" type="url" placeholder="https://" />
+            </div>
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label for="venueCapacity">Venue Capacity (PAX)</label>
+              <input id="venueCapacity" name="venueCapacity" type="text" placeholder="e.g. 2,000" />
+            </div>
+            <div class="field">
+              <label for="ageRestriction">Age Restrictions</label>
+              <select id="ageRestriction" name="ageRestriction">
+                <option value="">Select…</option>
+                <option>All ages</option>
+                <option>18+</option>
+                <option>21+</option>
+                <option>Other</option>
+              </select>
+            </div>
+          </div>
+
+          <p class="form-section-title">Event Details</p>
           <div class="field-row">
             <div class="field">
               <label for="eventDate">Event Date</label>
@@ -109,34 +163,53 @@
           </div>
           <div class="field-row">
             <div class="field">
-              <label for="venue">Venue</label>
-              <input id="venue" name="venue" type="text" placeholder="Venue name" />
+              <label for="doorsOpen">Doors Open</label>
+              <input id="doorsOpen" name="doorsOpen" type="time" />
             </div>
             <div class="field">
-              <label for="city">City / Country</label>
-              <input id="city" name="city" type="text" placeholder="Oranjestad, Aruba" />
+              <label for="doorsClose">Doors Close</label>
+              <input id="doorsClose" name="doorsClose" type="time" />
             </div>
           </div>
           <div class="field-row">
             <div class="field">
-              <label for="budget">Budget Range</label>
-              <select id="budget" name="budget">
-                <option>Under $5,000</option>
-                <option>$5,000 – $15,000</option>
-                <option>$15,000 – $50,000</option>
-                <option>$50,000+</option>
-                <option>To be discussed</option>
-              </select>
+              <label for="performanceTime">Estimated Performance Time</label>
+              <input id="performanceTime" name="performanceTime" type="time" />
             </div>
             <div class="field">
               <label for="audience">Expected Audience Size</label>
               <input id="audience" name="audience" type="text" placeholder="e.g. 500 / 5,000 / 20,000" />
             </div>
           </div>
+
+          <p class="form-section-title">Financial Offer</p>
+          <div class="field-row">
+            <div class="field">
+              <label for="offerAmount">Offered Amount</label>
+              <input id="offerAmount" name="offerAmount" type="text" placeholder="e.g. 15,000" />
+            </div>
+            <div class="field">
+              <label for="currency">Currency</label>
+              <select id="currency" name="currency">
+                <option>USD</option>
+                <option>EUR</option>
+                <option>GBP</option>
+                <option>AWG</option>
+              </select>
+            </div>
+          </div>
+          <p class="field-hint" style="font-size:0.82rem; margin-top:-12px; margin-bottom:26px; display:block;">Amount excludes agency fee, travel costs, accommodation, catering, and applicable taxes unless otherwise stated.</p>
+
           <div class="field">
             <label for="details">Event Details</label>
             <textarea id="details" name="details" placeholder="Tell us about the event, set length, stage setup, and anything else we should know."></textarea>
           </div>
+
+          <div class="consent-row">
+            <input id="consent" name="consent" type="checkbox" required />
+            <label for="consent">I agree that the information submitted in this form will be stored and processed by Michael Carty Bookings &amp; Artist Management for the purpose of evaluating and responding to this booking request. *</label>
+          </div>
+
           <button class="btn btn-solid" type="submit">Submit Booking Request</button>
         </form>
         <p style="color:var(--ivory-dim); font-size:0.85rem; margin-top:18px;">

@@ -563,6 +563,36 @@ section { padding: 96px 0; }
 }
 .field textarea { min-height: 140px; resize: vertical; }
 .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+.form-section-title {
+  font-size: 0.72rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gold);
+  border-top: 1px solid var(--line);
+  padding-top: 28px;
+  margin: 0 0 20px;
+}
+.form-wrap form > .form-section-title:first-child { border-top: none; padding-top: 0; }
+.field-hint { color: var(--ivory-dim); font-weight: 400; text-transform: none; letter-spacing: 0; }
+.consent-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 26px;
+}
+.consent-row input[type="checkbox"] {
+  width: auto;
+  margin-top: 4px;
+  accent-color: var(--gold);
+}
+.consent-row label {
+  margin: 0;
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: 0;
+  font-size: 0.85rem;
+  color: var(--ivory-dim);
+}
 
 /* Contact info block */
 .contact-grid {
